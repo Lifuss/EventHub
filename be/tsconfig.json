@@ -12,5 +12,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/*.ts", "**/*.json", "./types/*.d.ts", ".eslintrc.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.json",
+    "./types/*.d.ts",
+    ".eslintrc.js",
+    "lib/seed.ts"
+  ]
 }

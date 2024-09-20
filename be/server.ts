@@ -8,7 +8,7 @@ const { MONGO_USERNAME, MONGO_PASSWORD, DB_CLUSTER, DB_NAME, PORT } =
 
 const port = typeof PORT === "number" ? PORT : 3030;
 
-const dbUri = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${DB_CLUSTER}.ptjlibm.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
+export const dbUri = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${DB_CLUSTER}.ptjlibm.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 
 mongoose
   .connect(dbUri)
