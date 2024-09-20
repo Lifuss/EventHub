@@ -1,9 +1,8 @@
 import { Router } from "express";
+import getEvents from "../controllers/events/getEvents";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-  res.status(200).json({ message: "Hello" });
-});
+router.get("/", getEvents);
 
 export default router;
