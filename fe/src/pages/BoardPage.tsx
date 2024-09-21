@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Button } from "../ui/Button";
@@ -36,6 +37,7 @@ const BoardPage = () => {
 
     return () => {
       if (loadMoreRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(loadMoreRef.current);
       }
     };
