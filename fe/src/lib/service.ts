@@ -7,10 +7,12 @@ const eventApi = axios.create({
 });
 
 class EventsService {
-  async getEvents(page: number) {
+  async getEvents(page: number, sort: string, order: string) {
     const { data } = await eventApi.get<GetEventsData>("/events", {
       params: {
         page,
+        sort,
+        order,
       },
     });
     return data;

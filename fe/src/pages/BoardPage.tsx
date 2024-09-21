@@ -2,21 +2,23 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { Button } from "../ui/Button";
 import EventCard from "../ui/EventCard";
 import { eventsService } from "../lib/service";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TEvents } from "../lib/types/types";
+import Sort from "../ui/Sort";
 
 const BoardPage = () => {
   const loadMoreRef = useRef(null);
+  const [sort, setSort] = useState<"title" | "organizer" | "date">("title");
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
 
   const { data, isLoading, isError, fetchNextPage, hasNextPage } =
     useInfiniteQuery({
-      queryKey: ["events"],
+      queryKey: ["events", sort, order],
       queryFn: ({ pageParam = 1 }: { pageParam: number }) =>
-        eventsService.getEvents(pageParam),
+        eventsService.getEvents(pageParam, sort, order),
       getNextPageParam: (lastPage, pages) => {
         return lastPage.hasMore ? pages.length + 1 : undefined;
       },
-      // @ts-expect-error idk how to deep refactor types here =(
       select: (data) => data.pages.flatMap((page) => page.events),
     });
 
@@ -59,7 +61,10 @@ const BoardPage = () => {
 
   return (
     <>
-      <h1 className="text-4xl mb-4 md:mb-8 text-center">Events</h1>
+      <h1 className="text-4xl mb-4 md:mb-6 text-center text-terracotta">
+        EventHub
+      </h1>
+      <Sort order={order} setOrder={setOrder} sort={sort} setSort={setSort} />
       <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 xl:gap-10">
         {data.length ? (
           data.map((event: TEvents) => (
@@ -69,7 +74,7 @@ const BoardPage = () => {
           <div> Not found 😶‍🌫️</div>
         )}
       </ul>
-      <div ref={loadMoreRef} className="h-10" />{" "}
+      <div ref={loadMoreRef} className="h-10" />
     </>
   );
 };
