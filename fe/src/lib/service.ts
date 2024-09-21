@@ -2,7 +2,7 @@ import axios from "axios";
 import { GetEventsData, Participant, TEvents } from "./types/types";
 
 const eventApi = axios.create({
-  baseURL: "http://localhost:3030/api",
+  baseURL: "https://be-eventhub.onrender.com/api",
 });
 
 class EventsService {
