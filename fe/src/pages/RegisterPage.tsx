@@ -43,7 +43,6 @@ const RegisterPage = () => {
     select: (data) => data.event,
     enabled: !!params.id,
   });
-  console.log(data);
 
   const {
     register,

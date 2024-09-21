@@ -27,7 +27,6 @@ class EventsService {
       eventId,
       credentials,
     });
-    console.log(data);
     return data;
   }
   async getEventParticipants(eventId: string) {

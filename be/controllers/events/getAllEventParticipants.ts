@@ -8,7 +8,6 @@ const getAllEventParticipants = ctrlWrapper(
     const event = await Event.findById(id);
 
     if (!event) {
-      console.log(event);
       res.status(404).json({ message: "Event not found =(" });
     }
 
