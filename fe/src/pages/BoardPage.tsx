@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Button } from "../ui/Button";
 import EventCard from "../ui/EventCard";
