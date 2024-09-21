@@ -13,7 +13,7 @@ Main lang: TypeScript
 ### - Frontend: 
 - React.js
 - API Communication: React Query, Axios
-- Vakidation: Zod
+- Validation: Zod
 - Styling: Tailwind CSS, Clsx
 ### - Backend: 
 - Node.js
