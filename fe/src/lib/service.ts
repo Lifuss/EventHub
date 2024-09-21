@@ -1,9 +1,8 @@
 import axios from "axios";
 import { GetEventsData, Participant, TEvents } from "./types/types";
 
-const apiUrl = import.meta.env.VITE_API_URL;
 const eventApi = axios.create({
-  baseURL: apiUrl + "/api",
+  baseURL: "http://localhost:3030/api",
 });
 
 class EventsService {

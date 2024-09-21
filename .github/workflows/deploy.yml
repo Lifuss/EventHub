@@ -17,7 +17,7 @@ jobs:
           node-version: "18"
 
       - name: Install, lint, build 🔧
-        working-directory: ./fe # Вказуємо, що працюємо в директорії фронтенду
+        working-directory: ./fe
         run: |
           npm install
           npm run lint
@@ -27,4 +27,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: fe/build # Змініть на ваш вихідний каталог після побудови
+          folder: fe/dist
